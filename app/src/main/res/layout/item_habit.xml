@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/primary_light"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#33FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvHabitTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Drink Water"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:id="@+id/tvStreak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔥 5 Day Streak"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_delete"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@android:color/holo_red_light" />
+
+        <CheckBox
+            android:id="@+id/checkDone"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:buttonTint="@color/accent_primary"
+            android:scaleX="1.3"
+            android:scaleY="1.3" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--&lt;!&ndash;-->
+    <!--    Improved Habit List Item for Habit Tracker-->
+    <!--    Changes:-->
+    <!--    1. Used ConstraintLayout for a flatter, more efficient view hierarchy.-->
+    <!--    2. Added a "Category Icon" placeholder for better visual identification.-->
+    <!--    3. Redesigned the streak display with a dedicated badge-like background.-->
+    <!--    4. Replaced the standard CheckBox with a custom-styled Material CheckBox or a Toggle.-->
+    <!--    5. Improved the delete button to be more subtle (using a long-press or a smaller icon).-->
+    <!--    6. Added a progress indicator (optional but professional).-->
+    <!--&ndash;&gt;-->
+    <!--<com.google.android.material.card.MaterialCardView-->
+    <!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:layout_marginHorizontal="16dp"-->
+    <!--    android:layout_marginBottom="12dp"-->
+    <!--    app:cardBackgroundColor="@color/primary_light"-->
+    <!--    app:cardCornerRadius="20dp"-->
+    <!--    app:cardElevation="2dp"-->
+    <!--    app:strokeWidth="0dp">-->
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:padding="16dp">-->
+
+    <!--        &lt;!&ndash; Category Icon Background &ndash;&gt;-->
+    <!--        <View-->
+    <!--            android:id="@+id/iconBg"-->
+    <!--            android:layout_width="48dp"-->
+    <!--            android:layout_height="48dp"-->
+    <!--            android:background="@drawable/splash_bg_gradient"-->
+    <!--            android:alpha="0.2"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/ivHabitIcon"-->
+    <!--            android:layout_width="24dp"-->
+    <!--            android:layout_height="24dp"-->
+    <!--            android:src="@android:drawable/ic_menu_compass"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@id/iconBg"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/iconBg"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/iconBg"-->
+    <!--            app:layout_constraintTop_toTopOf="@id/iconBg"-->
+    <!--            app:tint="@color/accent_primary" />-->
+
+    <!--        &lt;!&ndash; Habit Title &ndash;&gt;-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/tvHabitTitle"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:layout_marginEnd="16dp"-->
+    <!--            android:text="Drink Water"-->
+    <!--            android:textColor="@color/text_primary"-->
+    <!--            android:textSize="18sp"-->
+    <!--            android:fontFamily="sans-serif-black"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/checkDone"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/iconBg"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        &lt;!&ndash; Streak Badge &ndash;&gt;-->
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/streakContainer"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="4dp"-->
+    <!--            android:background="@drawable/splash_bg_gradient"-->
+    <!--            android:backgroundTint="@color/primary_dark"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            android:paddingHorizontal="8dp"-->
+    <!--            android:paddingVertical="2dp"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/tvHabitTitle"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/tvHabitTitle">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/tvStreak"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="🔥 5 Day Streak"-->
+    <!--                android:textColor="@color/accent_secondary"-->
+    <!--                android:textSize="12sp"-->
+    <!--                android:fontFamily="sans-serif-medium" />-->
+    <!--        </LinearLayout>-->
+
+    <!--        &lt;!&ndash; Custom Checkbox / Done Button &ndash;&gt;-->
+    <!--        <com.google.android.material.checkbox.MaterialCheckBox-->
+    <!--            android:id="@+id/checkDone"-->
+    <!--            android:layout_width="48dp"-->
+    <!--            android:layout_height="48dp"-->
+    <!--            android:button="@null"-->
+    <!--            android:background="@drawable/splash_bg_gradient"-->
+    <!--            android:backgroundTint="@color/primary_dark"-->
+    <!--            app:buttonTint="@color/accent_primary"-->
+    <!--            app:checkedIcon="@android:drawable/checkbox_on_background"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:useMaterialThemeColors="false" />-->
+
+    <!--        &lt;!&ndash; Subtle Delete Button (Optional, can be hidden or moved to long press) &ndash;&gt;-->
+    <!--        <ImageButton-->
+    <!--            android:id="@+id/btnDelete"-->
+    <!--            android:layout_width="24dp"-->
+    <!--            android:layout_height="24dp"-->
+    <!--            android:layout_marginEnd="8dp"-->
+    <!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+    <!--            android:src="@android:drawable/ic_menu_delete"-->
+    <!--            android:alpha="0.3"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/checkDone"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:tint="@color/error" />-->
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--</com.google.android.material.card.MaterialCardView>-->

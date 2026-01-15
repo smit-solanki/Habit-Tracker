@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+<!--    <color name="primary_dark">#121212</color>-->
+<!--    <color name="accent_blue">#3D5AFE</color>-->
+<!--    <color name="text_white">#FFFFFF</color>-->
+<!--    <color name="text_gray">#9E9E9E</color>-->
+<!--    <color name="card_bg">#1E1E1E</color>-->
+
+    <color name="dark">#e0aaff</color>
+    <color name="accent_blue">#9d4edd</color>
+    <color name="text_white">#3c096c</color>
+    <color name="text_gray">#240046</color>
+    <color name="card_bg">#c77dff</color>
+
+    <!-- Primary Colors -->
+    <color name="primary_dark">#0F172A</color> <!-- Deep Navy/Slate -->
+    <color name="primary_light">#1E293B</color> <!-- Lighter Slate for cards/elevated surfaces -->
+
+    <!-- Accent Colors -->
+    <color name="accent_primary">#38BDF8</color> <!-- Sky Blue -->
+    <color name="accent_secondary">#818CF8</color> <!-- Indigo -->
+    <color name="accent_gradient_start">#38BDF8</color>
+    <color name="accent_gradient_end">#818CF8</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#F8FAFC</color> <!-- Almost White -->
+    <color name="text_secondary">#94A3B8</color> <!-- Muted Slate -->
+    <color name="text_tertiary">#64748B</color> <!-- Dimmed Slate -->
+
+    <!-- Functional Colors -->
+    <color name="success">#22C55E</color>
+    <color name="error">#EF4444</color>
+</resources>
