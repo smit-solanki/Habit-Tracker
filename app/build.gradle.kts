@@ -44,10 +44,10 @@ dependencies {
     // Room Database (Fixed for Kotlin DSL)
     implementation("androidx.room:room-runtime:2.6.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
-
     // MPAndroidChart (Fixed for Kotlin DSL)
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-
     // Gson (Fixed for Kotlin DSL)
     implementation("com.google.code.gson:gson:2.10.1")
+    //admob
+    implementation("com.google.android.gms:play-services-ads:24.9.0")
 }

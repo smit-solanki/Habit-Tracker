@@ -5,13 +5,24 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler; // Added for time updates
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView; // Added
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.text.SimpleDateFormat; // Added
@@ -26,12 +37,25 @@ public class MainActivity extends AppCompatActivity {
     private ImageView btnStats;
     private TextView tvCurrentDate; // Added for the date display
     private final Handler timeHandler = new Handler();
+    private AdView adView;
+    private FrameLayout adContainerView;
+    private static final String AD_UNIT_ID = "ca-app-pub-6920326538569130/8693301592";
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        adContainerView = findViewById(R.id.ad_view_container);
+
+        new Thread(() -> {
+            MobileAds.initialize(this, initializationStatus -> {
+                // 2. Once initialized, load the ad on the UI thread
+                runOnUiThread(() -> loadBanner());
+            });
+        }).start();
+
 
         // Initialize Views
         recyclerView = findViewById(R.id.recyclerViewHabits);
@@ -144,10 +168,54 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void loadBanner() {
+        adView = new AdView(this);
+        adView.setAdUnitId(AD_UNIT_ID);
+        adContainerView.addView(adView);
+
+        // Set the adaptive size
+        AdSize adSize = getAdSize();
+        adView.setAdSize(adSize);
+
+        // Set the listener you wrote
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Ad successfully loaded!
+            }
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError adError) {
+                // Ad failed. Check adError.getMessage() for why.
+            }
+        });
+
+        // Load the ad
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+    }
+
+    // Helper to get the screen width dynamically
+    private AdSize getAdSize() {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        float widthPixels = displayMetrics.widthPixels;
+        float density = displayMetrics.density;
+        int adWidth = (int) (widthPixels / density);
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+    }
+
     @Override
     protected void onDestroy() {
+        // 1. Clean up AdMob resources
+        if (adView != null) {
+            adView.destroy();
+        }
+
+        // 2. Stop the handler for the date/time updates
+        if (timeHandler != null) {
+            timeHandler.removeCallbacksAndMessages(null);
+        }
+
+        // 3. Always call the parent method last
         super.onDestroy();
-        // Stop the handler if the activity is destroyed to save memory
-        timeHandler.removeCallbacksAndMessages(null);
     }
 }
