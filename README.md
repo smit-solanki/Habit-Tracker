@@ -20,7 +20,7 @@ This project was built as a learning project to practice Android app development
 - Habit reminders
 - Progress statistics
 - Cloud backup
-
+  
 ## Screenshots
 ![habit treker](https://github.com/user-attachments/assets/56aa288a-cec8-4c78-853f-24a97d46e122) 
 ![habit treker ](https://github.com/user-attachments/assets/ff948056-5fe3-4a67-be61-2fbf7a24ad6f)
